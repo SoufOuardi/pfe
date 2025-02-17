@@ -16,15 +16,15 @@ class BannersSeeder extends Seeder
         $banners = [
             [
                 'title' => 'Everyday Fresh & Clean with Our Products',
-                'image' => 'storage/uploads/banners/banner-1.png'
+                'image' => 'uploads/banners/banner-1.png'
             ],
             [
                 'title' => 'Make your Breakfast Healthy and Easy',
-                'image' => 'storage/uploads/banners/banner-2.png'
+                'image' => 'uploads/banners/banner-2.png'
             ],
             [
                 'title' => 'The best Organic Products Online',
-                'image' => 'storage/uploads/banners/banner-3.png'
+                'image' => 'uploads/banners/banner-3.png'
             ]
         ];
 

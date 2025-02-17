@@ -25,6 +25,10 @@ class UserResource extends Resource
     {
         return 'settings'; // Group name (same as RoleResource and PermissionResource)
     }
+    public static function shouldRegisterNavigation(): bool
+{
+    return auth()->user()->hasRole('admin', 'vendor');
+}
 
     // Optional: Set the order within the group
     public static function getNavigationSort(): ?int

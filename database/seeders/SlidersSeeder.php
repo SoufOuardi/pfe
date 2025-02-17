@@ -16,13 +16,13 @@ class SlidersSeeder extends Seeder
         $sliders = [
             [
                 'title' => 'Don’t miss amazing<br> grocery deals',
-                'image' => 'storage/uploads/sliders/1740458445299745.png',
-                'paragraph' => 'Sign up for the daily newsletter Fresh Vegetables<br>Big discount'
+                'image' => 'uploads/sliders/1740458445299745.png',
+                'paragraph' => 'Sign up for the daily newsletter'
             ],
             [
-                'title' => 'Save up to 50% off on your first order',
-                'image' => 'storage/uploads/sliders/1740458428862987.png',
-                'paragraph' => 'Exclusive discounts for new users. Grab the offer now!'
+                'title' => 'Fresh Vegetables<br> Big discount',
+                'image' => 'uploads/sliders/1740458428862987.png',
+                'paragraph' => 'Save up to 50% off on your first order'
             ]
         ];
 

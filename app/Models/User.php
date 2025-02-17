@@ -32,6 +32,15 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+    public function getRedirectRoute(): string
+    {
+        return match(true) {
+            $this->hasRole('admin') => 'admin',
+            $this->hasRole('vendor') => 'vendor',
+            $this->hasRole('user') => '/',
+            default => 'login', // Or any other default route
+        };
+    }
 
     /**
      * The attributes that should be hidden for serialization.
