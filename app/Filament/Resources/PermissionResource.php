@@ -29,6 +29,10 @@ class PermissionResource extends Resource
                 ->unique(ignoreRecord: true),
             ]);
     }
+    public static function shouldRegisterNavigation(): bool
+    {
+    return auth()->user()->hasRole('admin');
+    }
     public static function getNavigationGroup(): ?string
     {
         return 'settings'; // Group name (same as RoleResource and PermissionResource)
