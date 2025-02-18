@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Profile\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,4 +15,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+
+Route::controller(ProfileController::class)->group(function () {
+    Route::get('/account/{id?}', 'index')->name('show.profile');     // Map to UserController@index
 });
