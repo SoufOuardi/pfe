@@ -46,7 +46,7 @@
                                     <div class="tab-pane fade active show" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
                                         <div class="card">
                                             <div class="card-header">
-                                                <h3 class="mb-0">Hello Rosie!</h3>
+                                                <h3 class="mb-0">Hello {{$profile->name}}</h3>
                                             </div>
                                             <div class="card-body">
                                                 <p>
@@ -170,21 +170,17 @@
                                                 <p>Already have an account? <a href="page-login.html">Log in instead!</a></p>
                                                 <form method="post" name="enq">
                                                     <div class="row">
-                                                        <div class="form-group col-md-6">
-                                                            <label>First Name <span class="required">*</span></label>
-                                                            <input required="" class="form-control" name="name" type="text" />
-                                                        </div>
-                                                        <div class="form-group col-md-6">
-                                                            <label>Last Name <span class="required">*</span></label>
-                                                            <input required="" class="form-control" name="phone" />
+                                                        <div class="form-group col-md-12">
+                                                            <label>Name <span class="required">*</span></label>
+                                                            <input required="" value="{{$profile->name}}" class="form-control" name="dname" type="text" />
                                                         </div>
                                                         <div class="form-group col-md-12">
                                                             <label>Display Name <span class="required">*</span></label>
-                                                            <input required="" class="form-control" name="dname" type="text" />
+                                                            <input required="" value="{{$profile->name}}" class="form-control" name="dname" type="text" />
                                                         </div>
                                                         <div class="form-group col-md-12">
                                                             <label>Email Address <span class="required">*</span></label>
-                                                            <input required="" class="form-control" name="email" type="email" />
+                                                            <input required="" value="{{$profile->email}}" class="form-control" name="email" type="email" />
                                                         </div>
                                                         <div class="form-group col-md-12">
                                                             <label>Current Password <span class="required">*</span></label>
