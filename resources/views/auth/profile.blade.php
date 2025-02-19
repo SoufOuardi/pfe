@@ -162,18 +162,14 @@
                                                         <address>
                                                            {!!formatAddress($profile->address)!!}
                                                         </address>
-                                                        <div class="d-none mt-2" id="addressInput">    
-                                                            <label class="" for="">Edit Address</label>
-                                                            <input class="form-control" type="text" value="{{$profile->address}}" >
-                                                        </div>
+                                                        <livewire:component.edit-address :profile="$profile" />
                                                         @if($profile->city)
                                                         <p>New York</p>
                                                         @endif
                                                         <a href="#" id="editBtn" class="btn-small" onclick="event.preventDefault(); this.classList.add('d-none'); document.getElementById('saveBtn').classList.remove('d-none');
                                                                 document.getElementById('addressInput').classList.remove('d-none');">Edit</a>
                                                             
-                                                        <a href="#" id="saveBtn" class="btn-small d-none" onclick="event.preventDefault(); this.classList.add('d-none'); document.getElementById('editBtn').classList.remove('d-none');
-                                                        document.getElementById('addressInput').classList.add('d-none');">Save</a>
+                                                        
                                                        
                                                     </div>
                                                 </div>
