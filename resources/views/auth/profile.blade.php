@@ -133,14 +133,48 @@
                                                     <div class="card-header">
                                                         <h3 class="mb-0">Billing Address</h3>
                                                     </div>
+                                                    <?php 
+                                                    function formatAddress($address, $limit = 10)
+                                                    {
+                                                        $words = explode(' ', $address);
+                                                        $result = '';
+                                                        $line = '';
+                                                    
+                                                        foreach ($words as $word) {
+                                                            // Check if adding the word exceeds the limit
+                                                            if (strlen($line . ' ' . $word) > $limit) {
+                                                                $result .= trim($line) . "<br>";
+                                                                $line = $word;
+                                                            } else {
+                                                                $line .= ' ' . $word;
+                                                            }
+                                                        }
+                                                    
+                                                        // Add the last line
+                                                        $result .= trim($line);
+                                                    
+                                                        return $result;
+                                                    }
+
+
+                                                    ?>
                                                     <div class="card-body">
                                                         <address>
-                                                            3522 Interstate<br />
-                                                            75 Business Spur,<br />
-                                                            Sault Ste. <br />Marie, MI 49783
+                                                           {!!formatAddress($profile->address)!!}
                                                         </address>
+                                                        <div class="d-none mt-2" id="addressInput">    
+                                                            <label class="" for="">Edit Address</label>
+                                                            <input class="form-control" type="text" value="{{$profile->address}}" >
+                                                        </div>
+                                                        @if($profile->city)
                                                         <p>New York</p>
-                                                        <a href="#" class="btn-small">Edit</a>
+                                                        @endif
+                                                        <a href="#" id="editBtn" class="btn-small" onclick="event.preventDefault(); this.classList.add('d-none'); document.getElementById('saveBtn').classList.remove('d-none');
+                                                                document.getElementById('addressInput').classList.remove('d-none');">Edit</a>
+                                                            
+                                                        <a href="#" id="saveBtn" class="btn-small d-none" onclick="event.preventDefault(); this.classList.add('d-none'); document.getElementById('editBtn').classList.remove('d-none');
+                                                        document.getElementById('addressInput').classList.add('d-none');">Save</a>
+                                                       
                                                     </div>
                                                 </div>
                                             </div>

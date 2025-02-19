@@ -4,6 +4,13 @@
     </div>
 
     <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+    @if ($errors->any())
+        <div class="mb-4 text-red-600">
+            @foreach ($errors->all() as $error)
+                <p>{{ $error }}</p>
+            @endforeach
+        </div>
+    @endif
         {{ $slot }}
     </div>
 </div>

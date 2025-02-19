@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -22,7 +23,11 @@ class UserSeeder extends Seeder
         $user = User::create([
             'name' => 'User Name',
             'email' => 'user@example.com',
-            'password' => bcrypt('password123'), // Use a secure password
+            'password' => Hash::make('password'), // Use a secure password
+            'phone' => '1234567890',
+            'address' => 'Morocco Fes, Dhar Mehraz N 12',
+            'username' => 'Simo-El'
+
         ]);
         $user->assignRole($userRole);
 
@@ -30,7 +35,11 @@ class UserSeeder extends Seeder
         $vendor = User::create([
             'name' => 'Vendor Name',
             'email' => 'vendor@example.com',
-            'password' => bcrypt('password123'),
+            'password' => Hash::make('password'), 
+            'phone' => '1234567890',
+            'address' => 'Rabat - CasaBlanca Dwirat Cheikh, 12 ',
+            'username' => 'LFan-OX'
+
         ]);
         $vendor->assignRole($vendorRole);
 
@@ -38,7 +47,11 @@ class UserSeeder extends Seeder
         $admin = User::create([
             'name' => 'Admin Name',
             'email' => 'admin@example.com',
-            'password' => bcrypt('password123'),
+            'password' => Hash::make('password'), 
+            'phone' => '1234567890',
+            'address' => 'Checfchaouen, Trik El-Nour 465°',
+            'username' => 'Hello-ME'
+
         ]);
         $admin->assignRole($adminRole);
     }

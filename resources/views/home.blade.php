@@ -3,6 +3,7 @@
 @section('content')
 @include('main-parts.preview')
 @include('main-parts.header')
+@include('main-parts.mobile-header')
 <main class="main">
         
     @include('partials.home-slider')
