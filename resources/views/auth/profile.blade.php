@@ -133,45 +133,14 @@
                                                     <div class="card-header">
                                                         <h3 class="mb-0">Billing Address</h3>
                                                     </div>
-                                                    <?php 
-                                                    function formatAddress($address, $limit = 10)
-                                                    {
-                                                        $words = explode(' ', $address);
-                                                        $result = '';
-                                                        $line = '';
                                                     
-                                                        foreach ($words as $word) {
-                                                            // Check if adding the word exceeds the limit
-                                                            if (strlen($line . ' ' . $word) > $limit) {
-                                                                $result .= trim($line) . "<br>";
-                                                                $line = $word;
-                                                            } else {
-                                                                $line .= ' ' . $word;
-                                                            }
-                                                        }
                                                     
-                                                        // Add the last line
-                                                        $result .= trim($line);
-                                                    
-                                                        return $result;
-                                                    }
-
-
-                                                    ?>
-                                                    <div class="card-body">
-                                                        <address>
-                                                           {!!formatAddress($profile->address)!!}
-                                                        </address>
                                                         <livewire:component.edit-address :profile="$profile" />
-                                                        @if($profile->city)
-                                                        <p>New York</p>
-                                                        @endif
-                                                        <a href="#" id="editBtn" class="btn-small" onclick="event.preventDefault(); this.classList.add('d-none'); document.getElementById('saveBtn').classList.remove('d-none');
-                                                                document.getElementById('addressInput').classList.remove('d-none');">Edit</a>
+                                                        
                                                             
                                                         
                                                        
-                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">

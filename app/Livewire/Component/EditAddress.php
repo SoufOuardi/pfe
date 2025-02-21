@@ -6,25 +6,31 @@ use Livewire\Component;
 
 class EditAddress extends Component
 {
-    public $profile, $address;
+    public $address;
+    public $profile;
+    public $editing = false;
 
-    protected $rules = [
-        'address' => 'required|string',
-    ];
     public function mount($profile)
     {
         $this->profile = $profile;
         $this->address = $profile->address;
     }
-    public function updateAddress()
+
+    public function toggleEdit()
+    {
+        $this->editing = !$this->editing;
+    }
+
+    public function saveAddress()
     {
         $this->validate([
             'address' => 'required|min:3|max:255',
         ]);
 
-        $this->profile->update(['address' => $this->address]);
+        $this->profile->address = $this->address;
+        $this->profile->save();
 
-        session()->flash('message', 'Address updated successfully.');
+        $this->editing = false; // Hide the form after saving
     }
     public function render()
     {
